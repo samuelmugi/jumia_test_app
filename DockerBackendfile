@@ -1,0 +1,7 @@
+FROM openjdk:8-jdk-alpine
+WORKDIR /backendapp/
+ADD ./jumiaBackEnd/jumiaBackEnd.jar jumiaBackEnd.jar
+RUN apk  update
+RUN apk add curl bash wget fontconfig ttf-dejavu freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev freetype-dev libjpeg-turbo-dev libpng-dev
+ENTRYPOINT ["java", "-jar","jumiaBackEnd.jar"]
+EXPOSE 8585

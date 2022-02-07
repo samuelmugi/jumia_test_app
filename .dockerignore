@@ -1,0 +1,11 @@
+!**/node_modules
+!**/build
+/jumiaweb/node_modules/**
+/jumiaweb/build/**
+/jumiaBackEnd/nbproject/**
+/jumiaBackEnd/target/**
+nbactions.xml
+.dockerignore
+.git
+build
+node_modules

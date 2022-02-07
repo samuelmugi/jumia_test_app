@@ -1,0 +1,30 @@
+version: "3"
+services:
+# APP PORTAL REST BACKEND*****************************************
+  jumia-backend-app:
+    build:
+      context: .
+      dockerfile: DockerBackendfile
+    network_mode: bridge
+    container_name: jumia-backend-app
+    volumes:
+    - /root/jumia/logs/backend:/backendapp/logs
+    expose:
+      - 8585
+    ports:
+      - 8585:8585
+    restart: unless-stopped
+# APP FRONT END*****************************************
+  jumia-web-app:
+    build:
+          context: .
+          dockerfile: DockerfileFrontEnd
+    network_mode: bridge
+    container_name: jumia-web-app
+    expose:
+      - 9095
+    ports:
+      - 9095:9095
+    restart: unless-stopped
+    depends_on:
+      - jumia-backend-app
